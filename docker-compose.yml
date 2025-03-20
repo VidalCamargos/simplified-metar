@@ -45,9 +45,8 @@ services:
             - mysql
         networks:
             - laravel_app
-
     redis:
-        image: redis:latest
+        image: redis:alpine3.21
         networks:
             - laravel_app
 
