@@ -33,3 +33,5 @@ jobs:
       run: php artisan test
     - name: Execute rector
       run: vendor/bin/rector process --dry-run
+    - name: Execute ecs
+      run: vendor/bin/ecs
