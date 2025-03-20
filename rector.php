@@ -24,8 +24,8 @@ return RectorConfig::configure()
     ->withPaths([
         __DIR__.'/app/**',
         __DIR__.'/config/**',
+        __DIR__.'/database/**',
         __DIR__.'/routes/**',
-        __DIR__.'/storage/**',
         __DIR__.'/tests/**',
     ]);
 
