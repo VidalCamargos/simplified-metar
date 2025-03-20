@@ -72,5 +72,3 @@ Exemplo:
 ```http
 In progress
 ```
-
-## Desenvolvimento e
