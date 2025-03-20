@@ -1,0 +1,61 @@
+services:
+    application:
+        build:
+            context: .
+            dockerfile: dockerfiles/php/Dockerfile
+        image: application
+        container_name: application
+        tty: true
+        ports:
+            - "9000:9000"
+        volumes:
+            - .:/var/www
+        networks:
+            - laravel_app
+    nginx:
+        image: nginx:alpine
+        container_name: nginx
+        ports:
+            - "80:80"
+        volumes:
+            - .:/var/www
+            - ./dockerfiles/nginx/default.conf:/etc/nginx/conf.d/default.conf
+        networks:
+            - laravel_app
+    mysql:
+        image: mysql:8.0
+        container_name: mysql
+        environment:
+            MYSQL_DATABASE: simplified_data
+            MYSQL_ROOT_PASSWORD: root
+        ports:
+            - "3306:3306"
+        volumes:
+            - data:/var/lib/mysql
+        networks:
+            - laravel_app
+    phpmyadmin:
+        image: phpmyadmin:5.2
+        container_name: phpmyadmin
+        environment:
+            PMA_HOST: mysql
+        ports:
+            - "8888:80"
+        depends_on:
+            - mysql
+        networks:
+            - laravel_app
+
+    redis:
+        image: redis:latest
+        networks:
+            - laravel_app
+
+networks:
+    laravel_app:
+        driver: bridge
+
+volumes:
+    data:
+        driver: local
+
