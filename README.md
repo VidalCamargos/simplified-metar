@@ -1,6 +1,6 @@
 # Simplificador de METAR
 
-- WORKING IN PROGRESS
+- WORK IN PROGRESS
 
 Este projeto tem como objetivo fornecer uma API que simplifica e torna legível os dados METAR, permitindo consultas baseadas em códigos ICAO, filtragem por localização e retorno de informações meteorológicas de forma estruturada.
 
