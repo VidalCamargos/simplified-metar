@@ -35,4 +35,7 @@ return [
         ],
     ],
 
+    'secret_code' => [
+        'code' => env('SECRET_CODE'),
+    ],
 ];
